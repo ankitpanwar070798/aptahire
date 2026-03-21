@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+images: {
+    domains: ["deepsense.in","aptahire.ai","www.aptahire.ai"],
+  },
 };
 
 export default nextConfig;

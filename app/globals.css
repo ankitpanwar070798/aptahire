@@ -1,26 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Manrope:wght@200..800&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary:    #00B6DC;
+  --base-100:   rgb(255, 255, 255);   /* lightest — pale cyan tint */
+  --base-200:   rgb(200, 238, 249);   /* light cyan wash */
+  --base-250:   rgb(150, 218, 240);   /* soft cyan */
+  --base-300:   rgb(80, 192, 224);    /* medium cyan */
+  --base-350:   rgb(0, 182, 220);     /* primary #00B6DC */
+  --base-400:   rgb(0, 140, 170);     /* deeper primary */
+  --base-450:   rgb(0, 78, 96);       /* dark teal */
+  --base-500:   rgb(0, 18, 24);       /* near-black text */
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  /* overflow: hidden; */
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Manrope", sans-serif;
+  background-color: var(--base-100);
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 500;
+  letter-spacing: -0.25rem;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: 3.5rem;
+  font-weight: 550;
+  letter-spacing: -0.15rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.075rem;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+p.md {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+p.lg {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+p.mono {
+  text-transform: uppercase;
+  font-family: "DM Mono";
+  font-size: 0.9rem;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+}
+
+p.md.mono {
+  font-size: 1rem;
+}
+
+p.lg.mono {
+  font-size: 1.1rem;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--base-400);
+  border-radius: 0.35rem;
+}
+
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 3rem;
+    letter-spacing: -0.1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    letter-spacing: -0.05rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    letter-spacing: -0.025rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
 }

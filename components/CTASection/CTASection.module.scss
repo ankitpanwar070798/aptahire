@@ -1,0 +1,227 @@
+.cta_section {
+  padding: 160px 0;
+  background: var(--base-500);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 182, 220, 0.5), transparent);
+  }
+}
+
+.orb {
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle at center, rgba(0, 182, 220, 0.22) 0%, rgba(0, 182, 220, 0.06) 35%, transparent 65%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.grid_overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 182, 220, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 182, 220, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 0%, transparent 70%);
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 48px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 182, 220, 0.12);
+  border: 1px solid rgba(0, 182, 220, 0.3);
+  border-radius: 100px;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--base-300);
+  letter-spacing: 0.04em;
+  opacity: 0;
+}
+
+.badge_dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 182, 220, 0.3);
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(0, 182, 220, 0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(0, 182, 220, 0.1); }
+}
+
+.cta_heading {
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 800;
+  color: var(--base-100);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  opacity: 0;
+
+  em {
+    font-style: normal;
+    color: var(--primary);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--primary);
+      opacity: 0.4;
+      border-radius: 2px;
+    }
+  }
+}
+
+.cta_sub {
+  font-size: 18px;
+  color: var(--base-250);
+  line-height: 1.65;
+  opacity: 0;
+  max-width: 560px;
+
+  @media (max-width: 640px) {
+    font-size: 16px;
+  }
+}
+
+.br_desktop {
+  @media (max-width: 640px) {
+    display: none;
+  }
+}
+
+.btn_group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.btn_primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--primary);
+  color: var(--base-500);
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  letter-spacing: 0.01em;
+
+  &:hover {
+    background: var(--base-300);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 182, 220, 0.35);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.btn_icon {
+  transition: transform 0.25s ease;
+
+  .btn_primary:hover & {
+    transform: translateX(4px);
+  }
+}
+
+.btn_ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 28px;
+  background: transparent;
+  color: var(--base-250);
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid rgba(0, 182, 220, 0.2);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+
+  &:hover {
+    color: var(--base-100);
+    border-color: rgba(0, 182, 220, 0.5);
+    background: rgba(0, 182, 220, 0.06);
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.trust_row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+}
+
+.trust_item {
+  font-size: 12px;
+  color: var(--base-400);
+  font-weight: 500;
+}
+
+.trust_sep {
+  font-size: 12px;
+  color: var(--base-400);
+  opacity: 0.4;
+}

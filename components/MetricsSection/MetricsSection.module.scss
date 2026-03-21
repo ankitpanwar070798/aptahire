@@ -1,0 +1,269 @@
+.section {
+  background: var(--base-100);
+  padding: 7.5rem 0 8.5rem;
+  font-family: "Manrope", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+// Dot grid atmosphere
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--base-200) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.6;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 15%,
+    rgba(0, 0, 0, 0.4) 85%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 15%,
+    rgba(0, 0, 0, 0.4) 85%,
+    transparent 100%
+  );
+}
+
+.inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+// ── HEADER ─────────────────────────────────────────────────────────────────
+
+.header {
+  margin-bottom: 4.5rem;
+}
+
+.eyebrow {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--base-350);
+  margin-bottom: 1.05rem;
+}
+
+.heading {
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  font-weight: 660;
+  color: var(--base-500);
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+
+  em {
+    font-style: normal;
+    color: var(--base-350);
+  }
+}
+
+// ── METRICS GRID ────────────────────────────────────────────────────────────
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--base-200);
+  border-radius: 1.4rem;
+  overflow: hidden;
+  margin-bottom: 3.5rem;
+}
+
+.card {
+  padding: 3.2rem 2.8rem 3rem;
+  border-right: 1px solid var(--base-200);
+  background: var(--base-100);
+  transition: background 0.3s;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:hover {
+    background: rgba(0, 182, 220, 0.025);
+  }
+}
+
+.cardAccent {
+  background: rgba(0, 182, 220, 0.04);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: linear-gradient(90deg, var(--base-350), var(--base-300));
+    border-radius: 0;
+  }
+}
+
+.counter {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: clamp(3.2rem, 5.5vw, 5.6rem);
+  font-weight: 600;
+  color: var(--base-500);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+
+  .cardAccent & {
+    color: var(--base-350);
+  }
+}
+
+.divider {
+  width: 2.4rem;
+  height: 2px;
+  background: var(--base-250);
+  border-radius: 2px;
+  margin-bottom: 1.15rem;
+
+  .cardAccent & {
+    background: var(--base-350);
+  }
+}
+
+.metricLabel {
+  font-size: 0.98rem;
+  font-weight: 660;
+  color: var(--base-500);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.metricDesc {
+  font-size: 0.8rem;
+  color: var(--base-400);
+  line-height: 1.6;
+  max-width: 230px;
+}
+
+// ── COMPARISON ──────────────────────────────────────────────────────────────
+
+.compare {
+  padding: 2.6rem 0 0;
+  border-top: 1px solid var(--base-200);
+}
+
+.compareTag {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--base-300);
+  margin-bottom: 1.85rem;
+}
+
+.compareRows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.compareRow {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.compareName {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--base-400);
+  width: 150px;
+  flex-shrink: 0;
+}
+
+.compareNameFast {
+  color: var(--base-500);
+  font-weight: 600;
+}
+
+.barTrack {
+  flex: 1;
+  height: 7px;
+  background: var(--base-200);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 100px;
+  background: rgba(0, 182, 220, 0.22);
+  width: 0;
+}
+
+.barFast {
+  background: linear-gradient(90deg, var(--base-350), var(--base-300));
+}
+
+.compareDays {
+  font-family: "DM Mono", monospace;
+  font-size: 0.73rem;
+  color: var(--base-400);
+  width: 105px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.compareDaysFast {
+  color: var(--base-350);
+  font-weight: 600;
+}
+
+// ── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    border-right: none;
+    border-bottom: 1px solid var(--base-200);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 5rem 0 6rem;
+  }
+
+  .inner {
+    padding: 0 1.25rem;
+  }
+
+  .compareRow {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .compareName {
+    width: 100%;
+  }
+
+  .compareDays {
+    width: auto;
+    text-align: left;
+  }
+}

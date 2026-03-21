@@ -1,0 +1,39 @@
+.top_bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  background: transparent;
+  will-change: transform;
+
+  &_logo {
+    flex-shrink: 0;
+    img {
+      width: 120px;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &_cta {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .top_bar {
+    padding: 0 1.25rem;
+    height: 60px;
+  }
+
+  .top_bar_cta {
+    display: none;
+  }
+}
