@@ -18,8 +18,23 @@ const menuLinks = [
   { href: "/", label: "Home" },
   { href: "/features", label: "Features" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/ai-tools", label: "AI Tools" },
-  { href: "/resources", label: "Resources" },
+  {
+    href: "/",
+    label: "AI Tools",
+    submenu: [
+      { href: "/ai-tools/jd-generator", label: "JD Generator" },
+      { href: "/ai-tools/interview-questions", label: "Interview Question Generator" },
+      { href: "/ai-tools/linkedin-message", label: "LinkedIn Message Generator" },
+    ],
+  },
+  {
+    href: "/",
+    label: "Resources",
+    submenu: [
+      { href: "/resources/hr-glossary", label: "HR Glossary" },
+      { href: "/resources/blogs", label: "Blogs" },
+    ],
+  },
   { href: "/connect", label: "Contact" },
 ];
 
@@ -27,12 +42,19 @@ const Nav = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const menuRef = useRef(null);
   const isInitializedRef = useRef(false);
   const splitTextRefs = useRef([]);
+  const hideSubmenuTimerRef = useRef(null);
   const router = useRouter();
   const lenis = useLenis();
   const { navigateWithTransition } = useViewTransition();
+
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia("(hover: none)").matches);
+  }, []);
 
   useEffect(() => {
     if (lenis) isOpen ? lenis.stop() : lenis.start();
@@ -52,8 +74,8 @@ const Nav = () => {
 
     gsap.set(menu, { clipPath: "circle(0% at 50% 50%)" });
 
-    const h2Elements = menu.querySelectorAll("h2");
-    const pElements = menu.querySelectorAll("p");
+    const h2Elements = [...menu.querySelectorAll("h2")].filter((el) => !el.closest("[data-nosplit]"));
+    const pElements = [...menu.querySelectorAll("p")].filter((el) => !el.closest("[data-nosplit]"));
 
     [...h2Elements, ...pElements].forEach((el) => {
       const split = SplitText.create(el, { type: "lines", mask: "lines", linesClass: "split-line" });
@@ -104,6 +126,7 @@ const Nav = () => {
               document.body.classList.remove("menu-open");
               setIsAnimating(false);
               setIsNavigating(false);
+              setHoveredLink(null);
             },
           }),
       });
@@ -121,6 +144,31 @@ const Nav = () => {
   useEffect(() => {
     if (isInitializedRef.current) animateMenu(isOpen);
   }, [isOpen, animateMenu]);
+
+  const handleSubmenuToggle = useCallback((label) => {
+    setHoveredLink((prev) => (prev === label ? null : label));
+  }, []);
+
+  const handleLinkMouseEnter = useCallback((label, hasSubmenu) => {
+    if (isTouchDevice) return;
+    if (hideSubmenuTimerRef.current) clearTimeout(hideSubmenuTimerRef.current);
+    setHoveredLink(hasSubmenu ? label : null);
+  }, [isTouchDevice]);
+
+  const handleLinkMouseLeave = useCallback(() => {
+    if (isTouchDevice) return;
+    hideSubmenuTimerRef.current = setTimeout(() => setHoveredLink(null), 120);
+  }, [isTouchDevice]);
+
+  const handleSubmenuMouseEnter = useCallback(() => {
+    if (isTouchDevice) return;
+    if (hideSubmenuTimerRef.current) clearTimeout(hideSubmenuTimerRef.current);
+  }, [isTouchDevice]);
+
+  const handleSubmenuMouseLeave = useCallback(() => {
+    if (isTouchDevice) return;
+    hideSubmenuTimerRef.current = setTimeout(() => setHoveredLink(null), 120);
+  }, [isTouchDevice]);
 
   const toggleMenu = useCallback(() => {
     if (!isAnimating && isInitializedRef.current && !isNavigating) setIsOpen((prev) => !prev);
@@ -148,11 +196,51 @@ const Nav = () => {
         <div className={styles["menu-wrapper"]}>
           <div className={`${styles.col} ${styles["col-1"]}`}>
             <div className={styles.links}>
-              {menuLinks.map(({ href, label }) => (
-                <div key={label} className={styles.link}>
-                  <a href={href} onClick={(e) => handleLinkClick(e, href)}>
-                    <h2>{label}</h2>
-                  </a>
+              {menuLinks.map(({ href, label, submenu }) => (
+                <div
+                  key={label}
+                  className={`${styles.link} ${submenu ? styles.link_has_submenu : ""} ${hoveredLink === label ? styles.link_active : ""}`}
+                  onMouseEnter={() => handleLinkMouseEnter(label, !!submenu)}
+                  onMouseLeave={handleLinkMouseLeave}
+                >
+                  <div className={styles.link_inner}>
+                    {submenu ? (
+                      <span
+                        className={`${styles.link_disabled} ${hoveredLink === label ? styles.link_disabled_open : ""}`}
+                        onClick={() => handleSubmenuToggle(label)}
+                      >
+                        <h2>{label}</h2>
+                        <span className={styles.chevron} aria-hidden="true" />
+                      </span>
+                    ) : (
+                      <a href={href} onClick={(e) => handleLinkClick(e, href)}>
+                        <h2>{label}</h2>
+                      </a>
+                    )}
+                    {submenu && (
+                      <div
+                        data-nosplit
+                        className={`${styles.submenu_panel} ${hoveredLink === label ? styles.submenu_visible : ""}`}
+                        onMouseEnter={handleSubmenuMouseEnter}
+                        onMouseLeave={handleSubmenuMouseLeave}
+                      >
+                        <p className={styles.submenu_category}>{label}</p>
+                        <div className={styles.submenu_items}>
+                          {submenu.map(({ href: subHref, label: subLabel }) => (
+                            <a
+                              key={subLabel}
+                              href={subHref}
+                              className={styles.submenu_item}
+                              onClick={(e) => handleLinkClick(e, subHref)}
+                            >
+                              <span>{subLabel}</span>
+                              <span className={styles.submenu_arrow}>→</span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
