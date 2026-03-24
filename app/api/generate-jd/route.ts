@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 function buildPrompt(data: {
   jobTitle: string;
   industry: string;
@@ -78,6 +74,10 @@ Return only the formatted job description. No preamble, no commentary, no "Here 
 
 export async function POST(request: NextRequest) {
   try {
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+
     const body = await request.json();
 
     const { jobTitle, industry, jobType, experienceLevel, keyResponsibilities, skills, tone, companyName } = body;
