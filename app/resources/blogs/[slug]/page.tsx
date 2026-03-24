@@ -1,11 +1,13 @@
 import BlogPost from "../../../../components/Blog/BlogPost";
 import { blogPosts, slugify } from "../../../../components/Blog/blog-data";
 
+type Params = Promise<{ slug: string }>;
+
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: slugify(post.title) }));
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }: { params: Params }) {
   const { slug } = await params;
   const post = blogPosts.find((p) => slugify(p.title) === slug);
   return {
@@ -14,7 +16,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function BlogPostPage({ params }) {
+export default async function BlogPostPage({ params }: { params: Params }) {
   const { slug } = await params;
   return <BlogPost slug={slug} />;
 }
