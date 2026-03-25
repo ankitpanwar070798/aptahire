@@ -19,6 +19,9 @@ export default function TextSlideEffect({ children, animateOnScroll = true, dela
     () => {
       if (!containerRef.current) return;
 
+      // On mobile: skip SplitText + ScrollTrigger — text visible at CSS default
+      if (window.innerWidth <= 768) return;
+
       splitRefs.current = [];
       lines.current = [];
       elementRefs.current = [];

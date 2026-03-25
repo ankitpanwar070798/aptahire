@@ -69,10 +69,17 @@ const Nav = () => {
     if (!menuRef.current) return;
     const menu = menuRef.current;
 
+    // Always hide the nav menu initially via clipPath — critical for correct UX
+    gsap.set(menu, { clipPath: "circle(0% at 50% 50%)" });
+
+    // Skip expensive SplitText animation setup on mobile
+    if (window.innerWidth <= 1000) {
+      isInitializedRef.current = true;
+      return;
+    }
+
     splitTextRefs.current.forEach((split) => split.revert?.());
     splitTextRefs.current = [];
-
-    gsap.set(menu, { clipPath: "circle(0% at 50% 50%)" });
 
     const h2Elements = [...menu.querySelectorAll("h2")].filter((el) => !el.closest("[data-nosplit]"));
     const pElements = [...menu.querySelectorAll("p")].filter((el) => !el.closest("[data-nosplit]"));

@@ -40,6 +40,21 @@ const HeroSection = () => {
   const { navigateWithTransition } = useViewTransition();
 
   useEffect(() => {
+    // On mobile: skip all GSAP — elements are visible at CSS defaults, no infinite animations
+    if (window.innerWidth <= 768) {
+      // Only run the question cycling (lightweight, no animation library)
+      let qIndex = 0;
+      qIntervalRef.current = setInterval(() => {
+        qIndex = (qIndex + 1) % QUESTIONS.length;
+        if (questionTextRef.current) {
+          questionTextRef.current.textContent = QUESTIONS[qIndex];
+        }
+      }, 3500);
+      return () => {
+        if (qIntervalRef.current) clearInterval(qIntervalRef.current);
+      };
+    }
+
     const ctx = gsap.context(() => {
       // Set initial states via JS so CSS doesn't need to know about animation
       gsap.set(badgeRef.current, { opacity: 0, y: 18 });

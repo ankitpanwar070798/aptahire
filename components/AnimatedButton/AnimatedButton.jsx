@@ -45,6 +45,9 @@ const AnimatedButton = ({
     () => {
       if (!buttonRef.current || !textRef.current) return;
 
+      // On mobile: skip all GSAP — button is visible at CSS defaults
+      if (window.innerWidth <= 768) return;
+
       if (!animate) {
         gsap.set(buttonRef.current, { scale: 1 });
         gsap.set(circleRef.current, { scale: 1, opacity: 1 });

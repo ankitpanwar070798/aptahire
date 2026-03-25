@@ -55,9 +55,14 @@ export default function ClientLayout({ children }) {
   return (
     <ViewTransitions>
       <Loader />
-      <ReactLenis root options={scrollSettings}>
-        {children}
-      </ReactLenis>
+      {isMobile ? (
+        // On mobile: skip Lenis entirely — removes library execution cost from TBT
+        <>{children}</>
+      ) : (
+        <ReactLenis root options={scrollSettings}>
+          {children}
+        </ReactLenis>
+      )}
     </ViewTransitions>
   );
 }
