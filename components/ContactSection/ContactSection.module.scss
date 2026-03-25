@@ -195,7 +195,7 @@
   border-top: none;
   border-bottom: none;
   padding: 1.6rem 2rem;
-  background: rgba(200, 238, 249, 0.18);
+  background: var(--bg-surface);
 }
 
 .detail_city {
@@ -237,7 +237,7 @@
   border-top: none;
   border-radius: 0 0 16px 16px;
   padding: 2rem;
-  background: #fff;
+  background: var(--bg);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -277,7 +277,7 @@
   padding: 0.82rem 1rem;
   border-radius: 10px;
   border: 1.5px solid rgba(0, 182, 220, 0.2);
-  background: #fafeff;
+  background: var(--bg-surface);
   font-size: 0.9rem;
   font-family: "Manrope", sans-serif;
   color: var(--base-500);
@@ -285,7 +285,7 @@
   transition: border-color 0.22s, box-shadow 0.22s;
   box-sizing: border-box;
 
-  &::placeholder { color: rgba(0, 78, 96, 0.35); }
+  &::placeholder { color: var(--text-dim); }
 
   &:focus {
     border-color: var(--primary);

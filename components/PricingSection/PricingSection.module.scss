@@ -4,7 +4,7 @@
 
 /* ── Base ─────────────────────────────────────────────────── */
 .page {
-  background: var(--base-100);
+  background: var(--bg);
   min-height: 100vh;
   overflow: hidden;
   position: relative;
@@ -125,7 +125,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--bg-surface);
   border: 1.5px solid rgba(0, 182, 220, 0.14);
   border-radius: 20px;
   padding: 2.2rem 2rem 2rem;
@@ -319,7 +319,7 @@
 }
 
 .cmp_block {
-  background: #fff;
+  background: var(--bg-surface);
   border: 1px solid rgba(0, 182, 220, 0.12);
   border-radius: 16px;
   overflow: hidden;
@@ -340,12 +340,12 @@
   &:last-child { border-bottom: none; }
 
   &:not(.cmp_head):not(.cmp_cta_row):hover {
-    background: rgba(200, 238, 249, 0.22);
+    background: var(--track-bg);
   }
 }
 
 .cmp_head {
-  background: rgba(200, 238, 249, 0.38);
+  background: var(--track-bg);
   min-height: 56px;
   border-bottom: 1px solid rgba(0, 182, 220, 0.18);
 }

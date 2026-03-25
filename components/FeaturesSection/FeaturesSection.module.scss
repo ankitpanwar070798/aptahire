@@ -1,8 +1,16 @@
 .features_section {
   padding: 140px 0;
-  background-color: var(--base-100);
+  background-color: var(--bg);
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 0;
+  }
 
   &::before {
     content: '';
@@ -28,6 +36,10 @@
 .header {
   max-width: 640px;
   margin-bottom: 72px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
 
   .label {
     font-size: 12px;
@@ -126,8 +138,8 @@
 
 .feature_card {
   position: relative;
-  background: var(--base-100);
-  border: 1px solid var(--base-200);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 0;
   overflow: hidden;
@@ -157,6 +169,10 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+
+  @media (max-width: 768px) {
+    padding: 20px 18px 24px;
+  }
 }
 
 .card_top {
@@ -169,7 +185,7 @@
 .icon_wrap {
   width: 44px;
   height: 44px;
-  background: var(--base-200);
+  background: var(--track-bg);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -185,7 +201,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--base-400);
-  background: var(--base-200);
+  background: var(--track-bg);
   padding: 4px 10px;
   border-radius: 100px;
 }

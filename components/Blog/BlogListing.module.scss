@@ -66,7 +66,7 @@
   margin: 0 auto;
   font-size: 1.05rem;
   font-weight: 500;
-  color: rgba(0, 18, 24, 0.5);
+  color: var(--text-muted);
   line-height: 1.65;
 }
 
@@ -91,7 +91,7 @@
 
 .search_label {
   font-size: 0.9rem;
-  color: rgba(0, 18, 24, 0.55);
+  color: var(--text-muted);
   margin-bottom: 1.5rem;
 
   strong { color: var(--base-500); }
@@ -123,8 +123,8 @@
   flex-direction: column;
   border-radius: 1.25rem;
   overflow: hidden;
-  border: 1.5px solid var(--base-200);
-  background: var(--base-100);
+  border: 1.5px solid var(--border);
+  background: var(--bg-surface);
   text-decoration: none;
   transition: border-color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
 
@@ -231,11 +231,11 @@
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(0, 18, 24, 0.4);
+  color: var(--text-dim);
 }
 
 .card_dot {
-  color: rgba(0, 18, 24, 0.25);
+  color: var(--text-dim);
   font-size: 0.75rem;
 }
 
@@ -251,7 +251,7 @@
 .card_excerpt {
   font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(0, 18, 24, 0.58);
+  color: var(--text-muted);
   line-height: 1.65;
   flex: 1;
   margin-bottom: 1.1rem;
@@ -294,7 +294,7 @@
 .author_role {
   font-size: 0.72rem;
   font-weight: 500;
-  color: rgba(0, 18, 24, 0.4);
+  color: var(--text-dim);
   line-height: 1.2;
 }
 
@@ -302,7 +302,7 @@
   margin-left: auto;
   font-size: 0.82rem;
   font-weight: 700;
-  color: rgba(0, 18, 24, 0.38);
+  color: var(--text-dim);
   white-space: nowrap;
   transition: color 0.22s ease, gap 0.22s ease;
   display: flex;
@@ -324,13 +324,13 @@
   min-width: 2.5rem;
   height: 2.5rem;
   padding: 0 0.75rem;
-  border: 1.5px solid var(--base-200);
+  border: 1.5px solid var(--border);
   border-radius: 0.55rem;
   background: transparent;
   font-family: "Manrope", sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
-  color: rgba(0, 18, 24, 0.55);
+  color: var(--text-muted);
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.15s;
 
@@ -367,6 +367,6 @@
   align-items: center;
   gap: 1rem;
 
-  span { font-size: 2.5rem; color: var(--base-200); }
-  p { font-size: 0.95rem; color: rgba(0, 18, 24, 0.4); }
+  span { font-size: 2.5rem; color: var(--base-300); }
+  p { font-size: 0.95rem; color: var(--text-dim); }
 }

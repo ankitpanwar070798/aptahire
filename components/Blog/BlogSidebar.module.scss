@@ -8,8 +8,8 @@
 
 /* ── Widget shell ── */
 .widget {
-  background: var(--base-100);
-  border: 1.5px solid var(--base-200);
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border);
   border-radius: 1.25rem;
   padding: 1.5rem;
   overflow: hidden;
@@ -24,14 +24,14 @@
   color: var(--primary);
   margin-bottom: 1.25rem;
   padding-bottom: 0.85rem;
-  border-bottom: 1px solid var(--base-200);
+  border-bottom: 1px solid var(--border);
 }
 
 /* ── Search ── */
 .search_form {
   display: flex;
   gap: 0;
-  border: 1.5px solid var(--base-200);
+  border: 1.5px solid var(--border);
   border-radius: 0.65rem;
   overflow: hidden;
   transition: border-color 0.22s ease, box-shadow 0.22s ease;
@@ -55,7 +55,7 @@
   user-select: text;
 
   &::placeholder {
-    color: rgba(0, 18, 24, 0.35);
+    color: var(--text-dim);
   }
 }
 
@@ -100,13 +100,13 @@
   font-family: "Manrope", sans-serif;
   font-size: 0.88rem;
   font-weight: 500;
-  color: rgba(0, 18, 24, 0.65);
+  color: var(--text-muted);
   cursor: pointer;
   text-align: left;
   transition: background 0.2s ease, color 0.2s ease;
 
   &:hover {
-    background: var(--base-200);
+    background: var(--bg-surface);
     color: var(--base-500);
   }
 }
@@ -130,8 +130,8 @@
   font-size: 0.7rem;
   font-family: "DM Mono", monospace;
   font-weight: 500;
-  background: var(--base-200);
-  color: rgba(0, 18, 24, 0.55);
+  background: var(--bg-surface);
+  color: var(--text-dim);
   padding: 0.15rem 0.45rem;
   border-radius: 100px;
   transition: background 0.2s ease, color 0.2s ease;
@@ -167,7 +167,7 @@
   height: 3.5rem;
   border-radius: 0.6rem;
   overflow: hidden;
-  border: 1px solid var(--base-200);
+  border: 1px solid var(--border);
 }
 
 .recent_img {
@@ -199,7 +199,7 @@
 .recent_date {
   font-size: 0.7rem;
   font-family: "DM Mono", monospace;
-  color: rgba(0, 18, 24, 0.4);
+  color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }

@@ -4,6 +4,7 @@ import ClientLayout from "../client-layout"
 import TopBar from "../components/TopBar/TopBar";
 import Footer from "../components/Footer/Footer";
 import Nav from "../components/Nav/Nav";
+import { ThemeProvider } from "../components/ThemeProvider/ThemeProvider";
 
 
 export const metadata: Metadata = {
@@ -17,14 +18,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <ClientLayout>
-           <TopBar/>
-                 <Nav />
-        {children}     
-        <Footer/>
-        </ClientLayout>
+        <ThemeProvider>
+          <ClientLayout>
+             <TopBar/>
+                   <Nav />
+          {children}     
+          <Footer/>
+          </ClientLayout>
+        </ThemeProvider>
       </body>
     </html>
   );

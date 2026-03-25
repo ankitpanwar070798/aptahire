@@ -96,7 +96,7 @@
   margin: 0 auto;
   font-size: 1.1rem;
   font-weight: 500;
-  color: rgba(0, 18, 24, 0.55);
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
@@ -111,8 +111,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  background: var(--base-100);
-  border: 1.5px solid var(--base-200);
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border);
   border-radius: 100px;
   padding: 0.8rem 1.25rem;
   gap: 0.75rem;
@@ -128,7 +128,7 @@
   flex-shrink: 0;
   width: 1.1rem;
   height: 1.1rem;
-  color: rgba(0, 18, 24, 0.35);
+  color: var(--text-dim);
   transition: color 0.25s ease;
 
   .search_inner:focus-within & {
@@ -148,7 +148,7 @@
   user-select: text;
 
   &::placeholder {
-    color: rgba(0, 18, 24, 0.35);
+    color: var(--text-dim);
   }
 }
 
@@ -158,7 +158,7 @@
   border: none;
   cursor: pointer;
   font-size: 0.75rem;
-  color: rgba(0, 18, 24, 0.4);
+  color: var(--text-dim);
   padding: 0.25rem 0.35rem;
   border-radius: 50%;
   transition: color 0.2s, background 0.2s;
@@ -166,7 +166,7 @@
 
   &:hover {
     color: var(--base-500);
-    background: var(--base-200);
+    background: var(--bg-surface);
   }
 }
 
@@ -187,14 +187,14 @@
   padding: 0 0.5rem;
   display: grid;
   place-items: center;
-  border: 1.5px solid var(--base-200);
+  border: 1.5px solid var(--border);
   border-radius: 0.5rem;
   background: transparent;
   font-family: "Manrope", sans-serif;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: rgba(0, 18, 24, 0.55);
+  color: var(--text-muted);
   cursor: pointer;
   transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 
@@ -233,18 +233,18 @@
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: rgba(0, 18, 24, 0.4);
+  color: var(--text-dim);
 }
 
 .clear_filter {
   background: none;
-  border: 1px solid var(--base-200);
+  border: 1px solid var(--border);
   border-radius: 100px;
   padding: 0.3rem 0.85rem;
   font-family: "Manrope", sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
-  color: rgba(0, 18, 24, 0.5);
+  color: var(--text-dim);
   cursor: pointer;
   transition: border-color 0.2s, color 0.2s;
 
@@ -275,8 +275,8 @@
 /* ── Card ── */
 .card {
   position: relative;
-  background: var(--base-100);
-  border: 1.5px solid var(--base-200);
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border);
   border-radius: 1.25rem;
   padding: 1.75rem 1.75rem 1.5rem;
   overflow: hidden;
@@ -343,7 +343,7 @@
 .card_def {
   font-size: 0.88rem;
   font-weight: 500;
-  color: rgba(0, 18, 24, 0.62);
+  color: var(--text-muted);
   line-height: 1.65;
   flex: 1;
   /* clamp to ~4 lines */
@@ -383,7 +383,7 @@
 
   p {
     font-size: 1rem;
-    color: rgba(0, 18, 24, 0.45);
+    color: var(--text-dim);
   }
 }
 

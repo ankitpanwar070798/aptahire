@@ -5,6 +5,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useViewTransition } from "../../hooks/useViewTransition";
 import AnimatedButton from "../AnimatedButton/AnimatedButton";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import styles from "./TopBar.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -62,6 +63,7 @@ const TopBar = () => {
         </a>
       </div>
       <div className={styles.top_bar_cta}>
+        <ThemeToggle />
         <AnimatedButton label="Enquire now" route="/connect" animate={false} />
       </div>
     </div>
