@@ -1,9 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-images: {
-    domains: ["deepsense.in","aptahire.ai","www.aptahire.ai"],
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 3600,
+    remotePatterns: [
+      { protocol: "https", hostname: "deepsense.in" },
+      { protocol: "https", hostname: "aptahire.ai" },
+      { protocol: "https", hostname: "www.aptahire.ai" },
+    ],
   },
+  compress: true,
 };
 
 export default nextConfig;

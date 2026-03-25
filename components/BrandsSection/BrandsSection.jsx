@@ -98,7 +98,14 @@ export default function BrandsSection({ logos = defaultLogos, intervalMs = 2000,
       }
     }
 
-    preloadImages()
+    // Defer preload to idle time so it doesn't compete with above-the-fold resources
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      const handle = window.requestIdleCallback(() => preloadImages());
+      return () => window.cancelIdleCallback(handle);
+    } else {
+      const t = setTimeout(preloadImages, 3000);
+      return () => clearTimeout(t);
+    }
   }, [logos])
 
   const shuffleLogos = () => {

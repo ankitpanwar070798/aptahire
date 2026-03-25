@@ -29,7 +29,15 @@ export default function Loader() {
   const ringRef = useRef(null);
   const centerRef = useRef(null);
 
+  // Skip loader on mobile devices — major LCP improvement
+  const isMobileDevice =
+    typeof window !== "undefined" && window.innerWidth <= 768;
+
   useEffect(() => {
+    if (isMobileDevice) {
+      setVisible(false);
+      return;
+    }
     if (typeof document !== "undefined") {
       document.body.style.overflow = "hidden";
     }

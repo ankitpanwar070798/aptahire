@@ -5,6 +5,7 @@ import featuredProjectsContent from "./featured-projects-content";
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 const FeaturedProjects = () => {
   useEffect(() => {
@@ -94,7 +95,14 @@ const FeaturedProjects = () => {
                 </div>
               </div>
               <div className={styles.featured_project_card_img}>
-                <img src={project.image} alt={project.title} />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 1000px) 100vw, 50vw"
+                  loading="lazy"
+                  style={{ objectFit: "cover" }}
+                />
               </div>
             </div>
           </div>

@@ -183,7 +183,13 @@ const HowWeWork = () => {
         {stepsData.map((step, idx) => (
           <div key={idx} className={styles.how_we_work_card}>
             <div className={styles.how_we_work_card_img}>
-              <Image src={step.img} alt={step.alt} fill />
+              <Image
+                src={step.img}
+                alt={step.alt}
+                fill
+                sizes="(max-width: 1000px) 100vw, 50vw"
+                loading={idx === 0 ? "eager" : "lazy"}
+              />
             </div>
             <div className={styles.how_we_work_card_copy}>
               <div className={styles.how_we_work_card_index_label}>
