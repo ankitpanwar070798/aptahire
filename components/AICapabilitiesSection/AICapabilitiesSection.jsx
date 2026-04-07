@@ -17,10 +17,10 @@ const CAPABILITIES = [
       tag: "Live Analysis",
       label: "Candidate: Sarah Chen",
       metrics: [
-        { name: "Confidence", val: 87, color: "#00B6DC" },
-        { name: "Clarity", val: 91, color: "#00B6DC" },
-        { name: "Engagement", val: 78, color: "#80D8ED" },
-        { name: "Hesitation", val: 14, color: "#4BB8CC", invert: true },
+        { name: "Confidence", val: 87, color: "#5CBC79" },
+        { name: "Clarity", val: 91, color: "#5CBC79" },
+        { name: "Engagement", val: 78, color: "#8DD4A0" },
+        { name: "Hesitation", val: 14, color: "#3DA55A", invert: true },
       ],
       tags: ["Positive tone", "Strong delivery", "On-topic"],
     },
@@ -275,7 +275,7 @@ export default function AICapabilitiesSection() {
                     ))}
                     <div className={styles.biasBadge}>
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                        <path d="M2 6l3 3 5-5" stroke="#00B6DC" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M2 6l3 3 5-5" stroke="#5CBC79" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       {cap.panel.badge}
                     </div>
@@ -287,7 +287,7 @@ export default function AICapabilitiesSection() {
                   <div className={styles.reportPanel}>
                     <div className={styles.reportHighlight}>
                       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                        <path d="M9 2l2 5.5H17l-4.5 3.3 1.7 5.7L9 13.2l-5.2 3.3 1.7-5.7L1 7.5h6L9 2z" stroke="#00B6DC" strokeWidth="1.3" strokeLinejoin="round" />
+                        <path d="M9 2l2 5.5H17l-4.5 3.3 1.7 5.7L9 13.2l-5.2 3.3 1.7-5.7L1 7.5h6L9 2z" stroke="#5CBC79" strokeWidth="1.3" strokeLinejoin="round" />
                       </svg>
                       {cap.panel.highlight}
                     </div>

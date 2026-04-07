@@ -37,8 +37,8 @@
 
 /* ── Dark mode track ── */
 .dark .track {
-  background: linear-gradient(135deg, #0c1e27 0%, #0a3040 100%);
-  box-shadow: 0 2px 10px rgba(0, 182, 220, 0.25);
+  background: linear-gradient(135deg, #0f1e13 0%, #0a2a18 100%);
+  box-shadow: 0 2px 10px rgba(92, 188, 121, 0.25);
 }
 
 /* ── Knob ── */
@@ -67,7 +67,7 @@
 .dark .knob {
   transform: translateX(31px);
   background: #e4f7fc;
-  box-shadow: 0 2px 8px rgba(0, 182, 220, 0.4), inset 0 1px 2px rgba(255,255,255,0.6);
+  box-shadow: 0 2px 8px rgba(92, 188, 121, 0.4), inset 0 1px 2px rgba(255,255,255,0.6);
   color: #1a3a4a;
 }
 

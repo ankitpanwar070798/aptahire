@@ -72,7 +72,7 @@ const Footer = () => {
         <div className={styles.footer_brand}>
           <div className={styles.footer_logo}>
             <img
-              src="https://aptahire.ai/wp-content/uploads/2023/09/aptahire-logo-2.png.webp"
+              src="/assets/logo.svg"
               alt="Aptahire"
             />
           </div>

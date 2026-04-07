@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --primary:    #00B6DC;
+  --primary:    #5CBC79;
 
   /* ── Light theme (default) ── */
   --base-100:   rgb(255, 255, 255);
-  --base-200:   rgb(200, 238, 249);
-  --base-250:   rgb(150, 218, 240);
-  --base-300:   rgb(80, 192, 224);
-  --base-350:   rgb(0, 182, 220);
-  --base-400:   rgb(0, 140, 170);
-  --base-450:   rgb(0, 78, 96);
-  --base-500:   rgb(0, 18, 24);
+  --base-200:   rgb(220, 245, 228);
+  --base-250:   rgb(170, 222, 185);
+  --base-300:   rgb(110, 196, 138);
+  --base-350:   rgb(92, 188, 121);
+  --base-400:   rgb(55, 148, 88);
+  --base-450:   rgb(22, 75, 40);
+  --base-500:   rgb(6, 18, 10);
 
   /* ── Semantic tokens (auto-switch with theme) ── */
   --bg:           var(--base-100);
@@ -19,12 +19,12 @@
   --text:         var(--base-500);
   --text-muted:   var(--base-450);
   --border:       var(--base-250);
-  --shadow:       0 4px 24px rgba(0, 182, 220, 0.10);
+  --shadow:       0 4px 24px rgba(92, 188, 121, 0.10);
 
   /* ── Component tokens ── */
-  --text-dim:     rgba(0, 18, 24, 0.45);   /* muted inline labels & values */
-  --track-bg:     rgba(0, 18, 24, 0.08);   /* progress bar / metric track bg */
-  --border-soft:  rgba(0, 18, 24, 0.15);   /* ghost element borders */
+  --text-dim:     rgba(6, 18, 10, 0.45);   /* muted inline labels & values */
+  --track-bg:     rgba(6, 18, 10, 0.08);   /* progress bar / metric track bg */
+  --border-soft:  rgba(6, 18, 10, 0.15);   /* ghost element borders */
 
   /* ── Theme transition ── */
   --theme-transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
@@ -32,26 +32,26 @@
 
 /* ── Dark theme overrides ── */
 [data-theme="dark"] {
-  --base-100:   #060d10;
-  --base-200:   #0c1e27;
-  --base-250:   #122d3a;
-  --base-300:   #5bbad0;   /* readable muted text — was #1a4a5c (too dark for text) */
-  --base-350:   #00B6DC;
-  --base-400:   #00d4fc;
-  --base-450:   #7fcce0;
-  --base-500:   #daeef4;   /* bright heading text — was #96a2a5 (too muted) */
+  --base-100:   #080f0a;
+  --base-200:   #0f1e13;
+  --base-250:   #162b1c;
+  --base-300:   #4aa362;   /* readable muted green — was #1a4a5c (too dark for text) */
+  --base-350:   #5CBC79;
+  --base-400:   #6fd98c;
+  --base-450:   #9fe0b4;
+  --base-500:   #d8f2de;   /* bright heading text — was #96a2a5 (too muted) */
 
-  --bg:           #060d10;
-  --bg-surface:   #0c1e27;
-  --text:         #daeef4;
-  --text-muted:   #7fcce0;
-  --border:       #122d3a;
-  --shadow:       0 4px 32px rgba(0, 182, 220, 0.18);
+  --bg:           #080f0a;
+  --bg-surface:   #0f1e13;
+  --text:         #d8f2de;
+  --text-muted:   #9fe0b4;
+  --border:       #162b1c;
+  --shadow:       0 4px 32px rgba(92, 188, 121, 0.18);
 
   /* ── Component tokens (dark overrides) ── */
-  --text-dim:    rgba(172, 220, 236, 0.55);
-  --track-bg:    rgba(172, 220, 236, 0.12);
-  --border-soft: rgba(172, 220, 236, 0.18);
+  --text-dim:    rgba(162, 232, 180, 0.55);
+  --track-bg:    rgba(162, 232, 180, 0.12);
+  --border-soft: rgba(162, 232, 180, 0.18);
 }
 * {
   margin: 0;

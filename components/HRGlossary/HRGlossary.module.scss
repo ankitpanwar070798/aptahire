@@ -34,7 +34,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0, 182, 220, 0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(92, 188, 121, 0.08) 0%, transparent 70%);
     pointer-events: none;
   }
 }
@@ -48,7 +48,7 @@
   font-weight: 800;
   letter-spacing: -0.08em;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(0, 182, 220, 0.1);
+  -webkit-text-stroke: 1.5px rgba(92, 188, 121, 0.1);
   pointer-events: none;
   user-select: none;
   line-height: 1;
@@ -120,7 +120,7 @@
 
   &:focus-within {
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(0, 182, 220, 0.1);
+    box-shadow: 0 0 0 4px rgba(92, 188, 121, 0.1);
   }
 }
 
@@ -290,7 +290,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 0% 0%, rgba(0, 182, 220, 0.04) 0%, transparent 65%);
+    background: radial-gradient(ellipse 80% 60% at 0% 0%, rgba(92, 188, 121, 0.04) 0%, transparent 65%);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -298,9 +298,9 @@
   }
 
   &:hover {
-    border-color: rgba(0, 182, 220, 0.4);
+    border-color: rgba(92, 188, 121, 0.4);
     transform: translateY(-5px);
-    box-shadow: 0 16px 40px rgba(0, 78, 96, 0.1), 0 2px 8px rgba(0, 182, 220, 0.08);
+    box-shadow: 0 16px 40px rgba(22, 75, 40, 0.1), 0 2px 8px rgba(92, 188, 121, 0.08);
 
     // &::before { opacity: 1; }
     // .card_accent { width: 3.5rem; }

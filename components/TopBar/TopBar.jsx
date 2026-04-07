@@ -54,7 +54,7 @@ const TopBar = () => {
           }}
         >
           <Image
-            src="https://aptahire.ai/wp-content/uploads/2023/09/aptahire-logo-2.png.webp"
+            src="/assets/logo.svg"
             alt="Aptahire Logo"
             width={120}
             height={40}

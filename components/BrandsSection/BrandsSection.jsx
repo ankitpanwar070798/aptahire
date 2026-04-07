@@ -1,54 +1,3 @@
-// "use client";
-// import { useEffect, useRef } from "react";
-// import Image from "next/image";
-// import gsap from "gsap";
-// import styles from "./BrandsSection.module.scss";
-
-// const brandLogos = [
-//   { src: "https://deepsense.in/wp-content/uploads/2024/10/Classmate.png.webp", alt: "Classmate" },
-//   { src: "https://deepsense.in/wp-content/uploads/2024/10/Cavins.png.webp", alt: "Cavins" },
-//   { src: "https://deepsense.in/wp-content/uploads/2024/11/Rectangle-3105.png.webp", alt: "Nippon" },
-//   { src: "https://deepsense.in/wp-content/uploads/2024/10/Walkaro.png.webp", alt: "Walkaro" },
-//   { src: "https://deepsense.in/wp-content/uploads/2024/10/Suguna-Foods.png.webp", alt: "Suguna Foods" },
-//   { src: "https://deepsense.in/wp-content/uploads/2024/11/Rectangle-3105-2.png.webp", alt: "ITC" },
-// ];
-
-// const BrandsSection = () => {
-//   const containerRef = useRef(null);
-//   const tweenRef = useRef(null);
-
-//   useEffect(() => {
-//     const container = containerRef.current;
-
-//     tweenRef.current = gsap.to(container, {
-//       xPercent: -50,
-//       ease: "none",
-//       duration: window.innerWidth < 768 ? 10 : 20, // faster on mobile
-//       repeat: -1,
-//     });
-
-//     container.addEventListener("mouseenter", () => tweenRef.current.pause());
-//     container.addEventListener("mouseleave", () => tweenRef.current.play());
-
-//     return () => {
-//       tweenRef.current?.kill();
-//     };
-//   }, []);
-
-//   return (
-//     <section className={styles.brands_section}>
-//       <div className={styles.track} ref={containerRef}>
-//         {[...brandLogos, ...brandLogos].map((brand, idx) => (
-//           <div key={idx} className={styles.logo}>
-//             <Image src={brand.src} alt={brand.alt} width={150} height={80} />
-//           </div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default BrandsSection;
 "use client"
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
@@ -57,12 +6,10 @@ import MagneticElement from "../MagneticElement"
 
 
 const defaultLogos = [
-  { src: "https://deepsense.in/wp-content/uploads/2024/10/Classmate.png.webp", name: "Classmate", alt: "Classmate" },
-  { src: "https://deepsense.in/wp-content/uploads/2024/10/Cavins.png.webp", name: "Cavins", alt: "Cavins" },
-  { src: "https://deepsense.in/wp-content/uploads/2024/11/Rectangle-3105.png.webp", name: "Nippon", alt: "Nippon" },
-  { src: "https://deepsense.in/wp-content/uploads/2024/10/Walkaro.png.webp", name: "Walkaro", alt: "Walkaro" },
-  { src: "https://deepsense.in/wp-content/uploads/2024/10/Suguna-Foods.png.webp", name: "Suguna Foods", alt: "Suguna Foods" },
-  { src: "https://deepsense.in/wp-content/uploads/2024/11/Rectangle-3105-2.png.webp", name: "ITC", alt: "ITC" },
+  { src: "https://aptahire.ai/wp-content/uploads/2025/01/1.png.webp", name: "Deepsense", alt: "Deepsense" },
+  { src: "https://aptahire.ai/wp-content/uploads/2025/01/2.png.webp", name: "Ripple AR", alt: "Ripple AR" },
+  { src: "https://aptahire.ai/wp-content/uploads/2025/01/3.png.webp", name: "Forge", alt: "Forge" },
+  { src: "https://aptahire.ai/wp-content/uploads/2025/01/4.png.webp", name: "linkseye", alt: "linkseye" },
 ]
 
 export default function BrandsSection({ logos = defaultLogos, intervalMs = 2000, monochrome = true }) {
@@ -152,11 +99,11 @@ export default function BrandsSection({ logos = defaultLogos, intervalMs = 2000,
             key={`${logo.name}-${index}`}
             className={styles.logo_item}
             style={{
-              transition: "opacity 200ms ease-out, transform 200ms ease-out, filter 200ms ease-out",
-              transitionDelay: isTransitioning ? `${index * 20}ms` : `${index * 30}ms`,
-              opacity: isTransitioning ? 0.3 : loadedImages.has(logo.src) ? 1 : 0.3,
-              transform: isTransitioning ? "scale(0.95)" : "scale(1)",
-              filter: isTransitioning ? "blur(3px)" : "blur(0px)",
+              // transition: "opacity 200ms ease-out, transform 200ms ease-out, filter 200ms ease-out",
+              // transitionDelay: isTransitioning ? `${index * 20}ms` : `${index * 30}ms`,
+              // opacity: isTransitioning ? 0.3 : loadedImages.has(logo.src) ? 1 : 0.3,
+              // transform: isTransitioning ? "scale(0.95)" : "scale(1)",
+              // filter: isTransitioning ? "blur(3px)" : "blur(0px)",
             }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}

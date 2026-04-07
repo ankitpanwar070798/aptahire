@@ -21,7 +21,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 55% at 50% 0%, rgba(0, 182, 220, 0.09) 0%, transparent 70%);
+    radial-gradient(ellipse 60% 55% at 50% 0%, rgba(92, 188, 121, 0.09) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -129,9 +129,9 @@
   transition: border-color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
 
   &:hover {
-    border-color: rgba(0, 182, 220, 0.45);
+    border-color: rgba(92, 188, 121, 0.45);
     transform: translateY(-5px);
-    box-shadow: 0 20px 48px rgba(0, 78, 96, 0.1), 0 2px 8px rgba(0, 182, 220, 0.07);
+    box-shadow: 0 20px 48px rgba(22, 75, 40, 0.1), 0 2px 8px rgba(92, 188, 121, 0.07);
 
     .card_img { transform: scale(1.05); }
     .card_cta { gap: 0.6rem; color: var(--primary); }
@@ -186,7 +186,7 @@
 .card_img_overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 18, 24, 0.32) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(6, 18, 10, 0.32) 0%, transparent 60%);
   pointer-events: none;
 }
 

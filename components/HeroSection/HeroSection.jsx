@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import Image from "next/image";
 import styles from "./HeroSection.module.scss";
 import AnimatedButton from "../AnimatedButton/AnimatedButton";
 import { useViewTransition } from "../../hooks/useViewTransition";
@@ -36,6 +37,7 @@ const HeroSection = () => {
   const questionChipRef = useRef(null);
   const questionTextRef = useRef(null);
   const qIntervalRef = useRef(null);
+  const heroImgRef = useRef(null);
 
   const { navigateWithTransition } = useViewTransition();
 
@@ -78,7 +80,12 @@ const HeroSection = () => {
         .to(cardRef.current,        { opacity: 1, x: 0, y: 0, duration: 0.9, ease: "power3.out" }, 0.5)
         .to(floatingBadgeRef.current, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 1.08)
         .to(scoreFillRefs.current,  { scaleX: 1, duration: 1.05, stagger: 0.14, ease: "power3.out" }, 1.22)
-        .to(questionChipRef.current, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 1.38);
+        .to(questionChipRef.current, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 1.38)
+        .fromTo(heroImgRef.current,
+          { opacity: 0, y: 60, scale: 0.97 },
+          { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: "power3.out" },
+          1.5
+        );
 
       // Continuous idle float — card and badge breathe independently
       gsap.to(cardRef.current, {
@@ -125,6 +132,7 @@ const HeroSection = () => {
         <div className={styles.noise} />
       </div>
       <div className={styles.bottomFade} aria-hidden="true" />
+
 
       <div className={styles.content}>
         {/* ── LEFT COLUMN ── */}
@@ -261,6 +269,23 @@ const HeroSection = () => {
         </div>
 
       </div>
+      
+        {/* ── HERO PRODUCT SCREENSHOT ── */}
+        <div className={styles.heroImgWrap} ref={heroImgRef}>
+          <div className={styles.heroImgFrame}>
+            <div className={styles.heroImgChrome}>
+              <span /><span /><span />
+            </div>
+            <Image
+              src="/assets/heroImg.png"
+              alt="Aptahire dashboard — AI-powered hiring platform"
+              width={1320}
+              height={820}
+              priority
+              className={styles.heroImg}
+            />
+          </div>
+        </div>
     </section>
   );
 };

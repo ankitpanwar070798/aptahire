@@ -72,7 +72,7 @@ const glossaryData = [
 ];
 
 const CATEGORY_COLOR = {
-  "Recruitment & Talent Acquisition": "#00B6DC",
+  "Recruitment & Talent Acquisition": "#5CBC79",
   "Performance Management": "#008CAA",
   "HR Technology": "#004E60",
   "Compensation & Benefits": "#50C0E0",

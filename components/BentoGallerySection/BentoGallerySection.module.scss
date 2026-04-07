@@ -1,0 +1,444 @@
+.section {
+  padding: 100px 0 120px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+
+  /* Subtle radial glow anchored top-right to match hero language */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(
+      ellipse at 60% 40%,
+      rgba(92, 188, 121, 0.10) 0%,
+      rgba(92, 188, 121, 0.04) 45%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Bottom separator line */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--base-250), transparent);
+  }
+
+  @media (max-width: 768px) {
+    padding: 64px 0 80px;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
+}
+
+// ─── Header ──────────────────────────────────────────────────────────────────
+
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+
+  .label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: clamp(26px, 3.5vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--base-500);
+    line-height: 1.15;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// ─── Bento Grid ──────────────────────────────────────────────────────────────
+
+.bento_grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 280px 280px;
+  gap: 16px;
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 12px;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ─── Bento Card Sizes ─────────────────────────────────────────────────────────
+
+.bento_card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--base-200);
+  cursor: pointer;
+
+  &:hover {
+    .card_overlay {
+      background: linear-gradient(
+        to top,
+        rgba(0, 10, 14, 0.88) 0%,
+        rgba(0, 10, 14, 0.2) 50%,
+        rgba(92, 188, 121, 0.15) 100%
+      );
+    }
+
+    img {
+      transform: scale(1.06) !important;
+    }
+
+    .card_sub {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  img {
+    transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  }
+}
+
+.size_large {
+  grid-column: span 5;
+  grid-row: span 2;
+
+  @media (max-width: 960px) {
+    grid-column: span 2;
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (max-width: 600px) {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.size_medium {
+  grid-column: span 4;
+  grid-row: span 1;
+
+  @media (max-width: 960px) {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (max-width: 600px) {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.size_small {
+  grid-column: span 3;
+  grid-row: span 1;
+
+  @media (max-width: 960px) {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (max-width: 600px) {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+// ─── Card Overlay & Labels ───────────────────────────────────────────────────
+
+.card_overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 10, 14, 0.75) 0%,
+    rgba(0, 10, 14, 0.05) 45%,
+    transparent 100%
+  );
+  transition: background 0.4s ease;
+  z-index: 1;
+}
+
+.card_content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card_label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.card_sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+// ─── Metrics Band ─────────────────────────────────────────────────────────────
+
+.metrics_band {
+  margin-top: 56px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+// ─── Counters Row ────────────────────────────────────────────────────────────
+
+.counters_row {
+  display: flex;
+  align-items: stretch;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+}
+
+.counter_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 36px 20px 32px;
+  gap: 6px;
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: var(--border);
+  }
+
+  @media (max-width: 768px) {
+    flex: 0 0 50%;
+    border-bottom: 1px solid var(--border);
+
+    &:not(:last-child)::after { display: none; }
+    &:nth-child(odd)  { border-right: 1px solid var(--border); }
+  }
+
+  @media (max-width: 420px) {
+    flex: 0 0 100%;
+    &:nth-child(odd) { border-right: none; }
+  }
+}
+
+.counter_value {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--primary);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.counter_label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--base-500);
+  letter-spacing: -0.01em;
+}
+
+.counter_desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+// ─── Compare Panel ────────────────────────────────────────────────────────────
+
+.compare_panel {
+  border-top: 1px solid var(--border);
+  padding: 28px 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    padding: 24px 20px 28px;
+  }
+}
+
+.compare_tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.compare_rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.compare_row {
+  display: grid;
+  grid-template-columns: 180px 1fr 90px;
+  align-items: center;
+  gap: 16px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 130px 1fr 72px;
+    gap: 10px;
+  }
+}
+
+.compare_name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.compare_name_fast {
+  color: var(--primary);
+}
+
+.bar_track {
+  height: 8px;
+  background: var(--track-bg, rgba(0,18,24,0.08));
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: var(--border-soft, rgba(0,18,24,0.18));
+  border-radius: 9999px;
+  transform-origin: left center;
+  transform: scaleX(0);
+  width: 100%;
+}
+
+.bar_fast {
+  background: linear-gradient(90deg, var(--primary), #6fd98c);
+}
+
+.compare_days {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.compare_days_fast {
+  color: var(--primary);
+}
+
+// ─── Stats Bar ───────────────────────────────────────────────────────────────
+
+.stats_bar {
+  margin-top: 48px;
+  display: flex;
+  align-items: stretch;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    border-radius: 16px;
+  }
+}
+
+.stat_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 32px;
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: var(--border);
+  }
+
+  @media (max-width: 768px) {
+    padding: 28px 20px;
+
+    &:not(:last-child)::after {
+      top: auto;
+      right: 10%;
+      bottom: 0;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+    }
+  }
+}
+
+.stat_value {
+  font-size: clamp(38px, 4.5vw, 58px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.stat_label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+  max-width: 200px;
+  line-height: 1.5;
+}

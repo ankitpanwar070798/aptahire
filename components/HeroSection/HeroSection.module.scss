@@ -1,12 +1,14 @@
-﻿.hero {
+.hero {
   position: relative;
   width: 100vw;
   min-height: 100svh;
   background: var(--base-100);
   display: flex;
+  flex-direction: column;
   align-items: center;
   overflow: hidden;
   font-family: "Manrope", sans-serif;
+  padding-bottom: 0;
 }
 
 // ── BACKGROUND ──────────────────────────────────────────────────────────────
@@ -26,8 +28,8 @@
   height: 110vh;
   background: radial-gradient(
     ellipse at 55% 38%,
-    rgba(0, 182, 220, 0.12) 0%,
-    rgba(0, 182, 220, 0.04) 45%,
+    rgba(92, 188, 121, 0.12) 0%,
+    rgba(92, 188, 121, 0.04) 45%,
     transparent 68%
   );
 }
@@ -61,14 +63,65 @@
 }
 
 .bottomFade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, transparent, var(--base-100));
+  display: none;
+}
+
+// ── HERO PRODUCT SCREENSHOT ──────────────────────────────────────────────────
+
+.heroImgWrap {
+  position: relative;
   z-index: 2;
-  pointer-events: none;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2.5rem 5rem;
+  opacity: 0; /* GSAP will reveal */
+
+  @media (max-width: 768px) {
+    padding: 0 1.25rem 3.5rem;
+  }
+}
+
+.heroImgFrame {
+  position: relative;
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--base-250);
+  border-bottom: none;
+  box-shadow:
+    0 0 0 1px rgba(92, 188, 121, 0.08) inset,
+    0 -4px 0 0 var(--base-250),
+    0 32px 80px rgba(22, 75, 40, 0.14),
+    0 8px 24px rgba(22, 75, 40, 0.08);
+  background: var(--base-100);
+}
+
+.heroImgChrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: var(--base-200);
+  border-bottom: 1px solid var(--base-250);
+
+  span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--base-250);
+
+    &:nth-child(1) { background: #ff5f57; }
+    &:nth-child(2) { background: #febc2e; }
+    &:nth-child(3) { background: #28c840; }
+  }
+}
+
+.heroImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 // ── LAYOUT ──────────────────────────────────────────────────────────────────
@@ -99,9 +152,9 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.38rem 0.95rem;
-  border: 1px solid rgba(0, 182, 220, 0.35);
+  border: 1px solid rgba(92, 188, 121, 0.35);
   border-radius: 100px;
-  background: rgba(0, 182, 220, 0.08);
+  background: rgba(92, 188, 121, 0.08);
   font-family: "DM Mono", monospace;
   font-size: 0.68rem;
   color: var(--base-400);
@@ -122,10 +175,10 @@
 @keyframes pulseDot {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(0, 182, 220, 0.5);
+    box-shadow: 0 0 0 0 rgba(92, 188, 121, 0.5);
   }
   50% {
-    box-shadow: 0 0 0 5px rgba(0, 182, 220, 0);
+    box-shadow: 0 0 0 5px rgba(92, 188, 121, 0);
   }
 }
 
@@ -175,7 +228,7 @@
   align-items: center;
   gap: 0.45rem;
   background: transparent;
-  border: 1px solid rgba(0, 78, 96, 0.18);
+  border: 1px solid rgba(22, 75, 40, 0.18);
   border-radius: 100px;
   color: var(--base-450);
   font-family: "Manrope", sans-serif;
@@ -193,7 +246,7 @@
   &:hover {
     color: var(--base-500);
     border-color: var(--base-350);
-    background: rgba(0, 182, 220, 0.06);
+    background: rgba(92, 188, 121, 0.06);
 
     svg {
       transform: translateX(3px);
@@ -255,9 +308,9 @@
   border-radius: 1.35rem;
   padding: 1.5rem;
   box-shadow:
-    0 0 0 1px rgba(0, 182, 220, 0.06) inset,
+    0 0 0 1px rgba(92, 188, 121, 0.06) inset,
     0 4px 24px rgba(0, 140, 170, 0.08),
-    0 24px 72px rgba(0, 78, 96, 0.1);
+    0 24px 72px rgba(22, 75, 40, 0.1);
   will-change: transform;
 }
 
@@ -470,8 +523,8 @@
   padding: 0.85rem 1.15rem;
   text-align: center;
   box-shadow:
-    0 4px 20px rgba(0, 78, 96, 0.1),
-    0 1px 4px rgba(0, 78, 96, 0.06);
+    0 4px 20px rgba(22, 75, 40, 0.1),
+    0 1px 4px rgba(22, 75, 40, 0.06);
   will-change: transform;
 }
 
@@ -507,8 +560,8 @@
   border: 1px solid var(--base-200);
   border-radius: 0.95rem;
   box-shadow:
-    0 4px 20px rgba(0, 78, 96, 0.09),
-    0 1px 4px rgba(0, 78, 96, 0.04);
+    0 4px 20px rgba(22, 75, 40, 0.09),
+    0 1px 4px rgba(22, 75, 40, 0.04);
   max-width: 264px;
   will-change: transform;
 }

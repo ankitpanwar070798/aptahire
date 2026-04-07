@@ -131,7 +131,7 @@
           height: 100%;
           object-fit: cover;
           object-position: center top;
-          opacity: 0.75;
+          // opacity: 0.75;
         }
 
         @media (max-width: 1000px) {
@@ -154,7 +154,7 @@
       }
 
       &_copy {
-        color: var(--base-350);
+        color: var(--base-100);
         padding: 1rem;
       }
     }

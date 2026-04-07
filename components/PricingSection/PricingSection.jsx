@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import styles from "./PricingSection.module.scss";
 import { useRef, useEffect } from "react";

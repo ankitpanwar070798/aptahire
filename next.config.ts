@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "deepsense.in" },
       { protocol: "https", hostname: "aptahire.ai" },
       { protocol: "https", hostname: "www.aptahire.ai" },
+      { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
   compress: true,

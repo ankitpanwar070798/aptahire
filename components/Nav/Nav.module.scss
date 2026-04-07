@@ -193,7 +193,7 @@
   color: var(--base-400);
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(0, 182, 220, 0.25);
+  border-bottom: 1px solid rgba(92, 188, 121, 0.25);
   font-weight: 600;
 }
 
@@ -211,7 +211,7 @@
   padding: 0.9rem 1.2rem;
   border-radius: 0.75rem;
   background: rgba(0, 140, 170, 0.15);
-  border: 1px solid rgba(0, 182, 220, 0.15);
+  border: 1px solid rgba(92, 188, 121, 0.15);
   color: var(--base-500);
   text-decoration: none;
   font-size: 0.9rem;
@@ -223,8 +223,8 @@
               color 0.22s ease;
 
   &:hover {
-    background: rgba(0, 182, 220, 0.22);
-    border-color: rgba(0, 182, 220, 0.42);
+    background: rgba(92, 188, 121, 0.22);
+    border-color: rgba(92, 188, 121, 0.42);
     transform: translateX(5px);
     color: var(--primary);
   }
@@ -289,8 +289,8 @@
     color: var(--base-100);
 
     &:hover, &:active {
-      background: rgba(0, 182, 220, 0.22);
-      border-color: rgba(0, 182, 220, 0.42);
+      background: rgba(92, 188, 121, 0.22);
+      border-color: rgba(92, 188, 121, 0.42);
       color: var(--primary);
     }
   }
