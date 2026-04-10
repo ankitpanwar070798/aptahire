@@ -9,6 +9,7 @@ const ImageShowcaseSection = dynamic(() => import("./ImageShowcaseSection/ImageS
 const FeaturesSection = dynamic(() => import("./FeaturesSection/FeaturesSection"), { ssr: false });
 const BentoGallerySection = dynamic(() => import("./BentoGallerySection/BentoGallerySection"), { ssr: false });
 const HowWeWork = dynamic(() => import("./HowWeWork/HowWeWork"), { ssr: false });
+const CandidateJourneySection = dynamic(() => import("./CandidateJourneySection/CandidateJourneySection"), { ssr: false });
 const TestimonialsSection = dynamic(() => import("./TestimonialsSection/TestimonialsSection"), { ssr: false });
 const FAQSection = dynamic(() => import("./FAQSection/FAQSection"), { ssr: false });
 const ContactSection = dynamic(() => import("./ContactSection/ContactSection"), { ssr: false });
@@ -18,6 +19,7 @@ export default function BelowFoldSections() {
     <>
       <BrandsSection />
       <HowWeWork />
+      <CandidateJourneySection />
       <AICapabilitiesSection />
       <ImageShowcaseSection />
       <FeaturesSection />
